@@ -1,0 +1,35 @@
+h1 {
+  text-align: center;
+}
+
+.player-icon {
+  text-align: center;
+  font-size: 5em;
+}
+
+.score-container {
+  text-align: center;
+  background-color: #222;
+  font-size: 4em;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  text-align: center;
+}
+
+.roll-control {
+  width: 75px;
+}
+
+.button-area {
+  text-align: center;
+}
+
+#roll-button {
+  margin-right: 10px
+}
+
+#hold-button {
+  margin-left: 10px
+}

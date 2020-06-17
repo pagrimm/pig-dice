@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/bootstrap.css" rel="stylesheet" type = "text/css">
+  <link href="css/styles.css" rel="stylesheet" type = "text/css">
+  <script src="js/jquery-3.5.1.js"></script>
+  <script src="js/scripts.js"></script>
+  <script src="https://kit.fontawesome.com/ab4e2358ae.js" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<body class="container">
+  <header class="jumbotron">
+    <h1><span class="text-danger">Pig</span> &#128055; <span class="text-info">Dice</span></h1>
+  </header>
+  <div class="row">
+    <div class="col-md-4">
+      <section class="card bg-dark mb-3">
+        <div class="card-header bg-danger">Player 1</div>
+        <div class="card-body">
+          <div class="player-icon text-danger">
+            <i class="fas fa-user"></i>
+          </div>
+          <h4 class="card-title">Score</h4>
+          <div id="player1-score" class="score-container">0</div>
+        </div>
+      </section>
+      <button id="start-button" type="button" class="btn btn-danger">Start Game</button>
+    </div>
+    <div class="col-md-4">
+      <section class="card text-white bg-dark mb-3">
+        <div class="card-header">Roll Dice</div>
+        <div class="card-body">
+          <h4 class="card-title">Current Roll</h4>
+          <div id="dice-container" class="score-container"><i class="fas fa-dice"></i></div>
+          <h4 class="card-title">Turn Total</h4>
+          <div id="turn-total" class="score-container">0</div>
+          <div class="button-area">
+            <button id="roll-button" type="button" class="roll-control btn btn-success">Roll</button>
+            <button id="hold-button" type="button" class="roll-control btn btn-warning">Hold</button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="col-md-4">
+      <section class="card bg-dark mb-3">
+        <div class="card-header bg-info">Player 2</div>
+        <div class="card-body">
+          <div class="player-icon text-info">
+            <i class="fas fa-user"></i>
+          </div>
+          <h4 class="card-title">Score</h4>
+          <div id="player2-score" class="score-container">0</div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
