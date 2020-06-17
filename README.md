@@ -21,6 +21,7 @@ A page that plays pig dice, created as an exercise to practice with constructors
 * Clone this repository 
 * Browse to the `pig-dice` folder
 * Open `index.html` in a browser of your choice
+* Also available at GitHub pages here: https://pagrimm.github.io/pig-dice/
 
 ## Technologies Used
 
