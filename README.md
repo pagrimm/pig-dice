@@ -1,5 +1,5 @@
 # Pig Dice
-**Activity for Epicodus**
+**Activity for Epicodus**  
 **By Peter Grimm, Allison Sadin, Megan Hepner 05.29.2020**
 
 ## Description

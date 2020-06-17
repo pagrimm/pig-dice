@@ -1,3 +1,4 @@
+//Business logic
 function displayDiceRoll(roll) {
   let dice = [
     "<i class=\"fas fa-dice-one\"></i>",
@@ -44,10 +45,10 @@ Game.prototype.switchTurn = function() {
 }
 
 Game.prototype.checkWinner = function () {
-  if (game.player1.score >= 100){
-    this.game.winner = 1;
-  } else if (game.player2.score >= 100) {
-    this.game.winner = 2;
+  if (this.player1.score >= 100){
+    this.winner = 1;
+  } else if (this.player2.score >= 100) {
+    this.winner = 2;
   }
 }
 
@@ -59,6 +60,7 @@ function rollDice() {
   return roll;
 }
 
+//UI Logic
 function enableRoll() {
   $(".roll-control").prop("disabled", false);
 }
@@ -81,12 +83,10 @@ function displayTurn(turn) {
 
 function displayWinner(winner) {
   if (winner === 1) {
-    $(".player1-score-title").text("Winner winner chicken dinner");
-    $(".player1-score-title").addClass("bg-danger");
+    $(".player1-score-title").append("<h3 class=\"text-danger delete\">Winner winner chicken dinner</h3>");
     $(".roll-control").prop("disabled", true);
   } else if (winner === 2) {
-    $(".player2-score-title").text("Winner winner chicken dinner");
-    $(".player2-score-title").addClass("bg-info");
+    $(".player2-score-title").append("<h3 class=\"text-info delete\">Winner winner chicken dinner</h3>");
     $(".roll-control").prop("disabled", true);
   }
 }
@@ -113,9 +113,14 @@ $(document).ready(function(){
     });
     $("#hold-button").click(function() {
       game.addTurnTotalToScore();
-      game.switchTurn();
-      displayTurn(game.turn);
+      game.checkWinner();
       displayScores(game);
+      if (game.winner === 0) {
+        game.switchTurn();
+        displayTurn(game.turn);
+      } else {
+        displayWinner(game.winner);
+      }
     });
   });
 });
