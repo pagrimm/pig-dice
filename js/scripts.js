@@ -7,5 +7,5 @@ function displayDiceRoll(roll) {
     "<i class=\"fas fa-dice-five\"></i>",
     "<i class=\"fas fa-dice-six\"></i>",
   ];
-  $("#dice-container").html(dice[roll - 1]);
+  $("#dice-container").html(dice[roll - 1]).effect("shake", {times:2,distance:10});
 }
