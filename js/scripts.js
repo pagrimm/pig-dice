@@ -23,9 +23,11 @@ Game.prototype.switchTurn = function() { // this prototype switches from player1
   this.turnTotal = 0; // sets turnTotal back to zero for next player
   if (this.turn === 1) { // if it is player1's turn...
     this.turn = 2; // then switch from player1 to player 2
+    disableRoll();
     computerPlayer(this); // ignore
   } else { // otherwise...
     this.turn = 1; // switch to player1 from player2
+    enableRoll();
   }
 }
 
@@ -63,6 +65,10 @@ function enableRoll() { // this allows the player to hit the roll button
   $(".roll-control").prop("disabled", false); // the rollcontrol class is not disabled
 }
 
+function disableRoll() {
+  $(".roll-control").prop("disabled", true);
+}
+
 function displayScores(game) { // this controls the display for the score boxes as well as the turnTotal
   $("#player1-score").text(game.player1.score) //score display for player1
   $("#player2-score").text(game.player2.score) //score display for player2
@@ -80,13 +86,8 @@ function displayTurn(turn) { // this function adds a bold border to whichever pl
 }
 
 function displayWinner(winner) { // displays the winner of the game who reached 100 first
-  if (winner === 1) { // if the winner is player1... then append the below <h4> tag that says winner winner chicken dinner
-    $(".player1-score-title").append("<h4 class=\"card-title text-danger delete\">Winner winner chicken dinner</h4>");
-    $(".roll-control").prop("disabled", true); // this disables the roll button so players cannot keep rolling
-  } else if (winner === 2) { // if the winner is player2... then append the below <h4> tag that says winner winner chicken dinner
-    $(".player2-score-title").append("<h4 class=\"card-title text-info delete\">Winner winner chicken dinner</h4>");
-    $(".roll-control").prop("disabled", true); // this disables the roll button so players cannot keep rolling
-  }
+  $(".player" + winner + "-score-title").append("<h4 class=\"card-title player" + winner + "-text delete\">Winner winner chicken dinner</h4>");
+  disableRoll(); // this disables the roll button so players cannot keep rolling
 }
 
 function resetPage() { // function that gets rid of the winner winner chicken dinner in displayWinner function
