@@ -34,10 +34,30 @@ h1 {
   margin-left: 10px
 }
 
+.player1-text {
+  color: #E74C3C
+}
+
+.player2-text {
+  color: #3498DB
+}
+
 .player1-active {
-  border: 5px solid #E74C3C;
+  border: 4px solid #E74C3C;
+  border-radius: .25rem;
+  background-clip: border-box;
+}
+
+.player1-active .card-header:first-child {
+  border-radius: 0rem;
 }
 
 .player2-active {
-  border: 5px solid #3498DB;
+  border: 4px solid #3498DB;
+  border-radius: .25rem;
+  background-clip: border-box;
+}
+
+.player2-active .card-header:first-child {
+  border-radius: 0rem;
 }

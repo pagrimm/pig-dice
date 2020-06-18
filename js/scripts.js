@@ -1,16 +1,4 @@
 //Business logic
-function displayDiceRoll(roll) {  // this shows the image of the dice
-  let dice = [
-    "<i class=\"fas fa-dice-one\"></i>", // this is face 1
-    "<i class=\"fas fa-dice-two\"></i>", // this is face 2
-    "<i class=\"fas fa-dice-three\"></i>", // this is face 3
-    "<i class=\"fas fa-dice-four\"></i>", // etc.
-    "<i class=\"fas fa-dice-five\"></i>",
-    "<i class=\"fas fa-dice-six\"></i>",
-  ];
-  $("#dice-container").html(dice[roll - 1]).effect("shake", {times:2,distance:10}); // this has a shake effect on the dice
-}
-
 function Player(score){ //Constructor: property is the score
   this.score = score
 }
@@ -28,11 +16,7 @@ Game.prototype.addToTurnTotal = function(roll) { // this prototype adds each val
 }
 
 Game.prototype.addTurnTotalToScore = function() { // this prototype adds the amount in the turnTotal to the players score who was rolling
-  if(this.turn === 1) { // if it is this player's turn (1 refers to player1) then add the turnTotal to player1's score
-    this.player1.score += this.turnTotal;
-  } else { // otherwise...
-    this.player2.score += this.turnTotal; // add the turnTotal to player2's score
-  }
+  this["player" + this.turn].score += this.turnTotal;
 }
 
 Game.prototype.switchTurn = function() { // this prototype switches from player1 back to player2
@@ -58,6 +42,23 @@ function rollDice() { // this is a function that returns the value of the dice r
 }                                     // multiply that by 6 for each value of dice, math.floor rounds that value down, then we add 1 to account for possible zero
 
 //UI Logic
+function displayDiceRoll(roll, turn) {  // this shows the image of the dice
+  let dice = [
+    "<i class=\"fas fa-dice-one\"></i>", // this is face 1
+    "<i class=\"fas fa-dice-two\"></i>", // this is face 2
+    "<i class=\"fas fa-dice-three\"></i>", // this is face 3
+    "<i class=\"fas fa-dice-four\"></i>", // etc.
+    "<i class=\"fas fa-dice-five\"></i>",
+    "<i class=\"fas fa-dice-six\"></i>",
+  ];
+  removeLastClass("#dice-container")
+  $("#dice-container").html(dice[roll - 1]).addClass("player" + turn + "-text").effect("shake", {times:2,distance:10}); // this has a shake effect on the dice
+}
+
+function removeLastClass(selector) {
+  $(selector).removeClass($(selector).attr('class').split(' ').pop());
+}
+
 function enableRoll() { // this allows the player to hit the roll button
   $(".roll-control").prop("disabled", false); // the rollcontrol class is not disabled
 }
@@ -134,7 +135,7 @@ $(document).ready(function(){
   });
   $("#roll-button").click(function() {
     let roll = rollDice();
-    displayDiceRoll(roll);
+    displayDiceRoll(roll, game.turn);
     if (roll === 1) {
       game.switchTurn();
       displayTurn(game.turn);
