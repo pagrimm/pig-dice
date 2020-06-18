@@ -98,12 +98,14 @@ function toggleTurnText(turn) {
 }
 
 function displayWinner(winner) { // displays the winner of the game who reached 100 first
-  $(".player" + winner + "-score-title").append("<h4 class=\"card-title player" + winner + "-text delete\">Winner winner chicken dinner</h4>");
+  $(".show-turn").hide();
+  $("#player" + winner + "-victory").show();
+  $("#player" + winner + "-section").effect("bounce");
   disableRoll(); // this disables the roll button so players cannot keep rolling
 }
 
 function resetPage() { // function that gets rid of the winner winner chicken dinner in displayWinner function
-  $(".delete").remove();// removes the delete class added in lines 87 and 90
+  $(".show-victory").hide();
   $("#dice-container").html("<i class=\"fas fa-dice\"></i>")
   removeLastClass("#dice-container");
   $("#dice-container").addClass("dummy");

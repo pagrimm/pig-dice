@@ -35,6 +35,11 @@ h1 {
   display: none;
 }
 
+.show-victory {
+  font-size: 1.5em;
+  display: none;
+}
+
 .center-align {
   text-align: center;
 }
@@ -62,8 +67,8 @@ h1 {
 }
 
 .player1-active {
-  border: 4px solid #E74C3C;
-  border-radius: .25rem;
+  outline: 4px solid #E74C3C;
+  outline-offset: -4px;
   background-clip: border-box;
 }
 
@@ -72,8 +77,8 @@ h1 {
 }
 
 .player2-active {
-  border: 4px solid #3498DB;
-  border-radius: .25rem;
+  outline: 4px solid #3498DB;
+  outline-offset: -4px;
   background-clip: border-box;
 }
 
