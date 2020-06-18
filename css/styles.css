@@ -15,7 +15,6 @@ h1 {
 }
 .player-header{
   font-size: 1.25em;
-  line-height: 1.95;
   text-align: center;
 }
 .card-title {
@@ -27,6 +26,11 @@ h1 {
 }
 
 .button-area {
+  text-align: center;
+  display: none;
+}
+
+.start-button-area {
   text-align: center;
 }
 

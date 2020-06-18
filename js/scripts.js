@@ -97,11 +97,17 @@ function toggleTurnText(turn) {
   }
 }
 
+function toggleButtonDisplay() {
+  $(".button-area").toggle();
+  $(".start-button-area").toggle();
+}
+
 function displayWinner(winner) { // displays the winner of the game who reached 100 first
   $(".show-turn").hide();
   $("#player" + winner + "-victory").show();
   $("#player" + winner + "-section").effect("bounce");
   disableRoll(); // this disables the roll button so players cannot keep rolling
+  toggleButtonDisplay();
 }
 
 function resetPage() { // function that gets rid of the winner winner chicken dinner in displayWinner function
@@ -150,6 +156,7 @@ $(document).ready(function(){
     resetScores(game);
     displayScores(game);
     displayTurn(game.turn);
+    toggleButtonDisplay();
     enableRoll();
   });
   $("#roll-button").click(function() {
