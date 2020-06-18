@@ -92,6 +92,9 @@ function displayWinner(winner) { // displays the winner of the game who reached 
 
 function resetPage() { // function that gets rid of the winner winner chicken dinner in displayWinner function
   $(".delete").remove();// removes the delete class added in lines 87 and 90
+  $("#dice-container").html("<i class=\"fas fa-dice\"></i>")
+  removeLastClass("#dice-container");
+  $("#dice-container").addClass("dummy");
 }
 
 function resetScores(game) { // this resets the score for every new game
