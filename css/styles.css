@@ -13,7 +13,11 @@ h1 {
   font-size: 4em;
   margin-bottom: 20px;
 }
-
+.player-header{
+  font-size: 1.25em;
+  line-height: 1.95;
+  text-align: center;
+}
 .card-title {
   text-align: center;
 }
@@ -35,11 +39,13 @@ h1 {
 }
 
 #roll-button {
-  margin-right: 10px
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 #hold-button {
-  margin-left: 10px
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .player1-text {
@@ -68,4 +74,22 @@ h1 {
 
 .player2-active .card-header:first-child {
   border-radius: 0rem;
+}
+
+@media only screen and (max-width: 991px) {
+  #hold-button {
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #hold-button {
+    margin-top: 0px;
+  }
+}
+
+@media only screen and (max-width: 281px) {
+  #hold-button {
+    margin-top: 10px;
+  }
 }
