@@ -30,6 +30,11 @@ h1 {
   text-align: center;
 }
 
+.show-turn {
+  font-size: 1.5em;
+  display: none;
+}
+
 .center-align {
   text-align: center;
 }

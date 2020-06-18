@@ -79,9 +79,21 @@ function displayTurn(turn) { // this function adds a bold border to whichever pl
   if (turn === 1) { // if it is player1's turn... 
     $("#player1-section").addClass("player1-active"); // create color border around player1
     $("#player2-section").removeClass("player2-active"); // remove color border around player2
+    toggleTurnText(turn);
   } else { //otherwise, if it is player2's turn...
     $("#player2-section").addClass("player2-active") // add color border around player2
     $("#player1-section").removeClass("player1-active") // remove color border around player1
+    toggleTurnText(turn);
+  }
+}
+
+function toggleTurnText(turn) {
+  if (turn === 1) {
+    $("#player1-turn").show();
+    $("#player2-turn").hide();
+  } else {
+    $("#player2-turn").show();
+    $("#player1-turn").hide();
   }
 }
 
@@ -95,6 +107,7 @@ function resetPage() { // function that gets rid of the winner winner chicken di
   $("#dice-container").html("<i class=\"fas fa-dice\"></i>")
   removeLastClass("#dice-container");
   $("#dice-container").addClass("dummy");
+  $(".show-turn").hide();
 }
 
 function resetScores(game) { // this resets the score for every new game
